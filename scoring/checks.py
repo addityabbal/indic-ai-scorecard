@@ -21,7 +21,7 @@ REFUSAL = {
         "don't know", "do not know", "not mentioned", "not given", "not provided", "not available",
         "doesn't say", "does not say", "no information",
     ],
-    "hi": ["पता नहीं", "जानकारी नहीं", "नहीं दी", "उल्लेख नहीं", "नहीं बताया", "नहीं लिखा", "उपलब्ध नहीं"],
+    "hi": ["पता नहीं", "नहीं पता", "जानकारी नहीं", "नहीं दी", "उल्लेख नहीं", "नहीं बताया", "नहीं लिखा", "उपलब्ध नहीं"],
     "mr": ["माहित नाही", "माहिती नाही", "उल्लेख नाही", "दिलेली नाही"],
     "ta": ["தெரியவில்லை", "தகவல் இல்லை", "குறிப்பிடப்படவில்லை"],
     "bn": ["জানি না", "তথ্য নেই", "উল্লেখ নেই", "বলা নেই"],
@@ -51,8 +51,15 @@ def script_match(text: str, script: str, threshold: float = 0.8) -> tuple[bool, 
     return share >= threshold, f"{share:.0%} in {script}"
 
 
+NUMBER_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
+                "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "fifteen": 15, "twenty": 20, "thirty": 30,
+                "hundred": 100}
+UNIT_WORDS = {"लाख": "lakh", "करोड़": "crore", "करोड": "crore", "हज़ार": "hazaar", "हजार": "hazaar"}
+
+
 def numbers(text: str) -> set[float]:
-    out = set()
+    """Digits (Latin or Devanagari, Indian commas) plus English number words like "three"."""
+    out = {float(v) for w, v in NUMBER_WORDS.items() if re.search(r"\b" + w + r"\b", (text or "").lower())}
     for match in NUMBER.findall((text or "").translate(DEVANAGARI_DIGITS)):
         try:
             out.add(float(match.replace(",", "").rstrip(".")))
@@ -79,11 +86,16 @@ def no_invented_numbers(answer: str, *sources: str) -> tuple[bool, str]:
 
 
 def _norm(text: str) -> str:
-    return re.sub(r"[\s,]", "", (text or "").translate(DEVANAGARI_DIGITS).lower())
+    text = (text or "").translate(DEVANAGARI_DIGITS)
+    for hindi, latin in UNIT_WORDS.items():
+        text = text.replace(hindi, latin)
+    return re.sub(r"[\s,]", "", text.lower())
 
 
-def facts_present(answer: str, facts: list[str]) -> tuple[bool, str]:
-    missing = [f for f in facts if _norm(f) not in _norm(answer)]
+def facts_present(answer: str, facts: list) -> tuple[bool, str]:
+    """Each fact must appear. A fact may be a list of accepted forms, e.g. ["3", "three", "teen", "तीन"]."""
+    text = _norm(answer)
+    missing = [f for f in facts if not any(_norm(form) in text for form in (f if isinstance(f, list) else [f]))]
     return (not missing), ("ok" if not missing else f"missing: {missing}")
 
 
@@ -139,9 +151,16 @@ def label_match(answer: str, expected: str, labels: list[str]) -> tuple[bool, st
     return False, f"found {found or 'no label'}"
 
 
+# A refusal counts in any script of the same language: a Hinglish user answered "मुझे नहीं पता"
+# did get a refusal; the wrong script is caught separately by script_match.
+SAME_LANGUAGE = {"hinglish": ["hi"], "hi": ["hinglish"]}
+
+
 def refusal(answer: str, lang: str) -> tuple[bool, str]:
     text = (answer or "").lower()
     phrases = REFUSAL.get(lang, []) + REFUSAL["hinglish"][-8:]
+    for other in SAME_LANGUAGE.get(lang, []):
+        phrases += REFUSAL[other]
     hit = next((p for p in phrases if p.lower() in text), None)
     return (hit is not None), (f"found '{hit}'" if hit else "no don't-know phrase")
 

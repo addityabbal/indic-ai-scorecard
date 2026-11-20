@@ -49,7 +49,7 @@ for i, msg in enumerate([
     add("support", i, msg, checks=["script_match", "judge"], rubric=SUP_R)
 
 for i, (q, ctx, facts) in enumerate([
-    ("PM-Kisan mein saal ke kitne paise milte hai aur kitni kist mein?", PMK, ["6,000", "2,000"]),
+    ("PM-Kisan mein saal ke kitne paise milte hai aur kitni kist mein?", PMK, ["6,000", ["3", "three", "teen", "तीन"]]),
     ("solar lagwaya 3 kW ka to subsidy kitni milegi total?", PMSG, ["78,000"]),
     ("Ayushman card se kitne tak ka ilaaj free hota hai?", PMJAY, ["5 lakh"]),
     ("beti ka Sukanya account kitni umar tak khol sakte hai aur minimum kitna jama karna padta hai?", SSY, ["10", "250"]),

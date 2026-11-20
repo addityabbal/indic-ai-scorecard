@@ -19,11 +19,20 @@ other benchmarks. Public cases are licensed CC BY 4.0.
 | simplify | A legal-style notice → simple language | judge + same script; chrF vs a reference is reported only |
 | refuse | A question the passage can't answer | a "don't know" phrase + no invented numbers + same script |
 
-Two rules were loosened after reading the first answers, because they flagged correct replies:
-"no invented numbers" also accepts numbers one step of arithmetic away from the passage or question
-(a sum, difference or product of two of them, e.g. 2 × 30,000 = 60,000), and JSON name fields ignore a
-trailing honorific ("Sunita Bhabhi" = "Sunita"). The trade-off: an invented number that happens to equal
-such a sum would slip through.
+After reading every flagged answer in the first run, five checker rules were corrected because they
+failed correct replies:
+
+1. "No invented numbers" accepts numbers one step of arithmetic from the passage or question (a sum,
+   difference or product of two, e.g. 2 × 30,000 = 60,000). Trade-off: an invented number equal to such
+   a sum would slip through.
+2. Number words count as numbers ("three instalments" allows "3 kist").
+3. Hindi unit words match their Roman forms ("5 लाख" = "5 lakh").
+4. JSON name fields ignore a trailing honorific ("Sunita Bhabhi" = "Sunita").
+5. A Hinglish user answered "मुझे नहीं पता" did get a refusal; the wrong script is caught by the
+   script check, not the refusal check.
+
+One test case was also wrong: hinglish-passage_qa-001 required the per-instalment amount the question
+didn't ask for. A fact can now list accepted forms (3 / three / teen / तीन).
 
 "Same script" applies to free-text replies only (not JSON or labels): at least 80% of letters must be in
 the user's script (Latin, Devanagari, Tamil or Bengali Unicode ranges).

@@ -1,6 +1,6 @@
 {
  "month": "2026-11",
- "generated_at": "2026-11-20T14:28:22+00:00",
+ "generated_at": "2026-11-20T14:33:58+00:00",
  "headline": "Top Hinglish quality: qwen3.8-27b (0.99). Best quality per dollar: llama-3.3-70b, statistically tied with it at $0.22 per 1,000 answers.",
  "cases": {
   "public": 30,
@@ -85,21 +85,21 @@
    "maker": "Alibaba (Qwen)",
    "provider": "workers-ai",
    "is_judge": false,
-   "score": 0.9861,
+   "score": 0.9945,
    "range": [
-    0.968,
-    0.9986
+    0.9875,
+    1.0
    ],
    "by_task": {
     "support": 0.9834,
-    "passage_qa": 0.95,
+    "passage_qa": 1.0,
     "extract": 1.0,
     "intent": 1.0,
     "simplify": 0.9833,
     "refuse": 1.0
    },
    "by_lang": {
-    "hinglish": 0.9861
+    "hinglish": 0.9945
    },
    "script_match": 1.0,
    "usd_per_1000": 0.9255,
@@ -144,47 +144,15 @@
    "rank": 2
   },
   {
-   "id": "mistral-small-3.1",
-   "model": "@cf/mistralai/mistral-small-3.1-24b-instruct",
-   "maker": "Mistral AI",
-   "provider": "workers-ai",
-   "is_judge": false,
-   "score": 0.8479,
-   "range": [
-    0.7694,
-    0.9236
-   ],
-   "by_task": {
-    "support": 0.7251,
-    "passage_qa": 0.5125,
-    "extract": 1.0,
-    "intent": 1.0,
-    "simplify": 0.9833,
-    "refuse": 0.8667
-   },
-   "by_lang": {
-    "hinglish": 0.8479
-   },
-   "script_match": 0.65,
-   "usd_per_1000": 0.086,
-   "median_seconds": 1.68,
-   "p90_seconds": 5.95,
-   "answers": 30,
-   "errors": 0,
-   "pending_judge": 0,
-   "hidden_gap": null,
-   "rank": 3
-  },
-  {
    "id": "llama-4-scout",
    "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
    "maker": "Meta",
    "provider": "workers-ai",
    "is_judge": false,
-   "score": 0.818,
+   "score": 0.8736,
    "range": [
-    0.7361,
-    0.8791
+    0.7917,
+    0.9347
    ],
    "by_task": {
     "support": 0.9333,
@@ -192,15 +160,47 @@
     "extract": 0.8,
     "intent": 1.0,
     "simplify": 0.8417,
-    "refuse": 0.3333
+    "refuse": 0.6667
    },
    "by_lang": {
-    "hinglish": 0.818
+    "hinglish": 0.8736
    },
    "script_match": 0.7,
    "usd_per_1000": 0.0946,
    "median_seconds": 11.48,
    "p90_seconds": 34.69,
+   "answers": 30,
+   "errors": 0,
+   "pending_judge": 0,
+   "hidden_gap": null,
+   "rank": 3
+  },
+  {
+   "id": "mistral-small-3.1",
+   "model": "@cf/mistralai/mistral-small-3.1-24b-instruct",
+   "maker": "Mistral AI",
+   "provider": "workers-ai",
+   "is_judge": false,
+   "score": 0.8563,
+   "range": [
+    0.7757,
+    0.9271
+   ],
+   "by_task": {
+    "support": 0.7251,
+    "passage_qa": 0.5625,
+    "extract": 1.0,
+    "intent": 1.0,
+    "simplify": 0.9833,
+    "refuse": 0.8667
+   },
+   "by_lang": {
+    "hinglish": 0.8563
+   },
+   "script_match": 0.65,
+   "usd_per_1000": 0.086,
+   "median_seconds": 1.68,
+   "p90_seconds": 5.95,
    "answers": 30,
    "errors": 0,
    "pending_judge": 0,
@@ -213,21 +213,21 @@
    "maker": "Z.ai",
    "provider": "workers-ai",
    "is_judge": false,
-   "score": 0.7715,
+   "score": 0.8326,
    "range": [
-    0.6819,
-    0.8604
+    0.75,
+    0.9062
    ],
    "by_task": {
     "support": 0.7833,
-    "passage_qa": 0.5792,
+    "passage_qa": 0.6792,
     "extract": 0.8,
     "intent": 1.0,
     "simplify": 1.0,
-    "refuse": 0.4666
+    "refuse": 0.7334
    },
    "by_lang": {
-    "hinglish": 0.7715
+    "hinglish": 0.8326
    },
    "script_match": 0.6,
    "usd_per_1000": 0.3096,
@@ -245,21 +245,21 @@
    "maker": "OpenAI",
    "provider": "workers-ai",
    "is_judge": false,
-   "score": 0.6424,
+   "score": 0.7063,
    "range": [
-    0.5722,
-    0.6903
+    0.6361,
+    0.7597
    ],
    "by_task": {
     "support": 0.1334,
-    "passage_qa": 0.6208,
+    "passage_qa": 0.6708,
     "extract": 0.8,
     "intent": 1.0,
     "simplify": 0.9667,
-    "refuse": 0.3333
+    "refuse": 0.6667
    },
    "by_lang": {
-    "hinglish": 0.6424
+    "hinglish": 0.7063
    },
    "script_match": 0.3333,
    "usd_per_1000": 0.1006,
@@ -372,18 +372,6 @@
   },
   {
    "model_id": "gpt-oss-20b",
-   "case_id": "hinglish-passage_qa-003",
-   "check": "facts_present",
-   "what": "Missed the key fact",
-   "detail": "missing: ['5 lakh']",
-   "task": "passage_qa",
-   "lang": "hinglish",
-   "input": "Ayushman card se kitne tak ka ilaaj free hota hai?",
-   "context": "Ayushman Bharat PM-JAY gives eligible families health cover of Rs 5 lakh per family per year for hospital treatment at empanelled government and private hospitals. Treatment is cashless and paperless at the hospital. There is no limit on family size or age.",
-   "answer": "Ayushman Bharat PM‑JAY ke tahat, har eligible parivaar ko har saal **5 लाख रुपये** tak ka hospital treatment free milta hai (cashless aur paperless). Isme parivaar ke size ya umar par koi limit nahi hai."
-  },
-  {
-   "model_id": "gpt-oss-20b",
    "case_id": "hinglish-extract-005",
    "check": "json_fields",
    "what": "Broken or wrong JSON",
@@ -395,35 +383,47 @@
    "answer": "{\"name\":\"Lakshmi aunty\",\"paid_inr\":1500,\"due_inr\":500,\"day\":\"next week\"}"
   },
   {
-   "model_id": "gpt-oss-20b",
-   "case_id": "hinglish-refuse-001",
-   "check": "refusal",
-   "what": "Made up an answer instead of saying it doesn't know",
-   "detail": "no don't-know phrase",
-   "task": "refuse",
+   "model_id": "glm-4.7-flash",
+   "case_id": "hinglish-support-003",
+   "check": "script_match",
+   "what": "Replied in the wrong script",
+   "detail": "46% in latn",
+   "task": "support",
    "lang": "hinglish",
-   "input": "PM-Kisan ki agli kist kis date ko aayegi?",
-   "context": "PM-Kisan scheme: eligible farmer families get Rs 6,000 per year from the central government. The money is paid in three equal instalments of Rs 2,000 each, directly into the farmer's bank account. The bank account must be linked with Aadhaar, and e-KYC must be completed to receive instalments.",
-   "answer": "मुझे नहीं पता."
+   "input": "UPI se payment kiya, paise kat gaye lekin merchant bol raha nahi mila. ab kya?",
+   "context": null,
+   "answer": "यह बहुत आम समस्या है। आप निम्नलिखित कदम उठा सकते हैं:\n\n1.  **Status चेक करें:** अपने UPI app (जैसे GPay, PhonePe, Paytm, BHIM) में जाकर उस transaction की status देखें। अगर status \"Success\" है, तो आपके पास एक UTR (Unique Transaction Reference) या Reference ID होगा।\n2.  **Merchant को दिखाएं:** उस UTR ID को merchant को दिखाएं। अक्सर यही बात करने पर merchant अपना बैंकिंग रिपोर्ट देखकर पैसे दे देता है।\n3.  **App की Complaint:** अगर merchant बिना पैसे दिए रुक गया, तो अपने UPI app के customer care"
   },
   {
-   "model_id": "qwen3.8-27b",
-   "case_id": "hinglish-passage_qa-001",
-   "check": "no_invented_numbers",
-   "what": "Invented a number",
-   "detail": "not in passage/question: [3.0]",
+   "model_id": "llama-4-scout",
+   "case_id": "hinglish-extract-003",
+   "check": "json_fields",
+   "what": "Broken or wrong JSON",
+   "detail": "due_inr=25 (want 50); day=None (want 25)",
+   "task": "extract",
+   "lang": "hinglish",
+   "input": "Pappu ka hisaab: 25 ko 150 rupay cash, 50 bacha hai",
+   "context": null,
+   "answer": "```\n{\n  \"name\": \"Pappu\",\n  \"paid_inr\": 150,\n  \"due_inr\": 25,\n  \"day\": null\n}\n```"
+  },
+  {
+   "model_id": "glm-4.7-flash",
+   "case_id": "hinglish-passage_qa-004",
+   "check": "facts_present",
+   "what": "Missed the key fact",
+   "detail": "missing: ['10']",
    "task": "passage_qa",
    "lang": "hinglish",
-   "input": "PM-Kisan mein saal ke kitne paise milte hai aur kitni kist mein?",
-   "context": "PM-Kisan scheme: eligible farmer families get Rs 6,000 per year from the central government. The money is paid in three equal instalments of Rs 2,000 each, directly into the farmer's bank account. The bank account must be linked with Aadhaar, and e-KYC must be completed to receive instalments.",
-   "answer": "PM-Kisan mein saal ke Rs 6,000 milte hain, jo 3 kist mein dete hain — har kist Rs 2,000 ki hoti hai."
+   "input": "beti ka Sukanya account kitni umar tak khol sakte hai aur minimum kitna jama karna padta hai?",
+   "context": "Sukanya Samriddhi Yojana: parents can open the account for a girl child below 10 years of age at a post office or bank. The minimum deposit is Rs 250 in a year and the maximum is Rs 1.5 lakh in a year. Deposits are made for 15 years, and the account matures 21 years after it is opened.",
+   "answer": "Account 21 saal baad mature hota hai aur saal mein minimum Rs 250 ka jama karna padta hai."
   }
  ],
  "history": {
   "qwen3.8-27b": [
    {
     "month": "2026-11",
-    "score": 0.9861
+    "score": 0.9945
    }
   ],
   "llama-3.3-70b": [
@@ -432,28 +432,28 @@
     "score": 0.9847
    }
   ],
-  "mistral-small-3.1": [
-   {
-    "month": "2026-11",
-    "score": 0.8479
-   }
-  ],
   "llama-4-scout": [
    {
     "month": "2026-11",
-    "score": 0.818
+    "score": 0.8736
+   }
+  ],
+  "mistral-small-3.1": [
+   {
+    "month": "2026-11",
+    "score": 0.8563
    }
   ],
   "glm-4.7-flash": [
    {
     "month": "2026-11",
-    "score": 0.7715
+    "score": 0.8326
    }
   ],
   "gpt-oss-20b": [
    {
     "month": "2026-11",
-    "score": 0.6424
+    "score": 0.7063
    }
   ],
   "gemma-4-26b": [

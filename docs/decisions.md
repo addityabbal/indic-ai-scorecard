@@ -4,6 +4,7 @@ Date, decision, reason. Newest first.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-20 | Corrected five checker rules and one test case after reading every flagged answer (details in METHOD.md). | They failed correct replies: one-step arithmetic, number words, "5 लाख", honorifics, refusals in Devanagari. Llama 4 Scout moved from 6th to 3rd once its Devanagari "I don%t know" replies counted as refusals. |
 | 2026-11-20 | Start with a 30-case Hinglish pilot on Workers AI models only. | No Groq, Google, Sarvam or OpenRouter keys yet; Workers AI works through the existing Cloudflare login. Plan milestone M1. |
 | 2026-11-20 | Pilot judge = Gemma 4 26B on Workers AI, not ranked. Plan's judge (large open model on Groq) once a key exists. | A judge is needed now; Gemma is cheap in neurons and multilingual. Judges favour their own answers, so it is never ranked. |
 | 2026-11-20 | max_tokens 1,500 instead of 600. | Several current models (Gemma 4, gpt-oss, GLM, Qwen 3.8) spend hidden reasoning tokens first; at 600 Gemma returned empty answers. Three answers still hit 1,500 and are scored 0 as "gave no answer". |

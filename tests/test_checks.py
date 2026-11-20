@@ -77,3 +77,19 @@ def test_names_ignore_trailing_honorifics():
     assert checks.same_name("Sunita Bhabhi", "Sunita")
     assert checks.same_name("Imran bhai", "Imran")
     assert not checks.same_name("Sunita Devi", "Sunita")
+
+
+def test_hinglish_refusal_in_devanagari_counts_as_refusal():
+    assert checks.refusal("मुझे नहीं पता।", "hinglish")[0]
+    assert not checks.script_match("मुझे नहीं पता।", "latn")[0]   # but the script check still fails it
+
+
+def test_number_words_and_hindi_units():
+    assert checks.no_invented_numbers("3 kist mein 2,000 each", "three equal instalments of Rs 2,000")[0]
+    assert checks.facts_present("har saal **5 लाख रुपये** tak", ["5 lakh"])[0]
+
+
+def test_fact_alternatives():
+    facts = ["6,000", ["3", "three", "teen", "तीन"]]
+    assert checks.facts_present("साल में 6,000 रुपये, तीन किस्तों में", facts)[0]
+    assert not checks.facts_present("साल में 6,000 रुपये मिलते हैं", facts)[0]
