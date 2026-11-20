@@ -1,0 +1,467 @@
+{
+ "month": "2026-11",
+ "generated_at": "2026-11-20T14:28:22+00:00",
+ "headline": "Top Hinglish quality: qwen3.8-27b (0.99). Best quality per dollar: llama-3.3-70b, statistically tied with it at $0.22 per 1,000 answers.",
+ "cases": {
+  "public": 30,
+  "by_lang": {
+   "hinglish": 30
+  },
+  "tasks": [
+   "extract",
+   "intent",
+   "passage_qa",
+   "refuse",
+   "simplify",
+   "support"
+  ],
+  "reviewed": 0
+ },
+ "languages": {
+  "hinglish": "Hinglish"
+ },
+ "tasks": {
+  "support": "Customer-support reply",
+  "passage_qa": "Answer from a passage",
+  "extract": "Pull data from a message",
+  "intent": "Understand intent",
+  "simplify": "Rewrite simply",
+  "refuse": "Say \"I don't know\""
+ },
+ "judge": {
+  "id": "gemma-4-26b",
+  "model": "@cf/google/gemma-4-26b-a4b-it",
+  "maker": "Google"
+ },
+ "calibration": {
+  "status": "not yet calibrated",
+  "threshold": 0.7,
+  "human_scores": 0,
+  "by_lang": {},
+  "note": "Human scores for the judge are not collected yet (target: 60 answers)."
+ },
+ "prices_checked": "2026-11-20",
+ "usd_inr": null,
+ "runs": [
+  {
+   "at": "2026-11-20T12:49:24+00:00",
+   "models": [
+    "llama-3.3-70b",
+    "llama-4-scout",
+    "mistral-small-3.1",
+    "gpt-oss-20b",
+    "qwen3.8-27b",
+    "glm-4.7-flash",
+    "gemma-4-26b"
+   ],
+   "missing_credentials": [
+    "gemini",
+    "groq",
+    "sarvam"
+   ],
+   "cases": "public",
+   "called": 170,
+   "cached": 33,
+   "neurons": 4506.6,
+   "stopped": "neuron budget 4500 reached"
+  },
+  {
+   "at": "2026-11-20T12:51:52+00:00",
+   "models": [
+    "glm-4.7-flash"
+   ],
+   "missing_credentials": [],
+   "cases": "public",
+   "called": 7,
+   "cached": 23,
+   "neurons": 168.5,
+   "stopped": null
+  }
+ ],
+ "models": [
+  {
+   "id": "qwen3.8-27b",
+   "model": "@cf/qwen/qwen3.8-27b",
+   "maker": "Alibaba (Qwen)",
+   "provider": "workers-ai",
+   "is_judge": false,
+   "score": 0.9861,
+   "range": [
+    0.968,
+    0.9986
+   ],
+   "by_task": {
+    "support": 0.9834,
+    "passage_qa": 0.95,
+    "extract": 1.0,
+    "intent": 1.0,
+    "simplify": 0.9833,
+    "refuse": 1.0
+   },
+   "by_lang": {
+    "hinglish": 0.9861
+   },
+   "script_match": 1.0,
+   "usd_per_1000": 0.9255,
+   "median_seconds": 4.99,
+   "p90_seconds": 15.95,
+   "answers": 30,
+   "errors": 0,
+   "pending_judge": 0,
+   "hidden_gap": null,
+   "rank": 1
+  },
+  {
+   "id": "llama-3.3-70b",
+   "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+   "maker": "Meta",
+   "provider": "workers-ai",
+   "is_judge": false,
+   "score": 0.9847,
+   "range": [
+    0.9778,
+    0.9917
+   ],
+   "by_task": {
+    "support": 0.9416,
+    "passage_qa": 1.0,
+    "extract": 1.0,
+    "intent": 1.0,
+    "simplify": 0.9667,
+    "refuse": 1.0
+   },
+   "by_lang": {
+    "hinglish": 0.9847
+   },
+   "script_match": 1.0,
+   "usd_per_1000": 0.2182,
+   "median_seconds": 1.72,
+   "p90_seconds": 5.12,
+   "answers": 30,
+   "errors": 0,
+   "pending_judge": 0,
+   "hidden_gap": null,
+   "rank": 2
+  },
+  {
+   "id": "mistral-small-3.1",
+   "model": "@cf/mistralai/mistral-small-3.1-24b-instruct",
+   "maker": "Mistral AI",
+   "provider": "workers-ai",
+   "is_judge": false,
+   "score": 0.8479,
+   "range": [
+    0.7694,
+    0.9236
+   ],
+   "by_task": {
+    "support": 0.7251,
+    "passage_qa": 0.5125,
+    "extract": 1.0,
+    "intent": 1.0,
+    "simplify": 0.9833,
+    "refuse": 0.8667
+   },
+   "by_lang": {
+    "hinglish": 0.8479
+   },
+   "script_match": 0.65,
+   "usd_per_1000": 0.086,
+   "median_seconds": 1.68,
+   "p90_seconds": 5.95,
+   "answers": 30,
+   "errors": 0,
+   "pending_judge": 0,
+   "hidden_gap": null,
+   "rank": 3
+  },
+  {
+   "id": "llama-4-scout",
+   "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+   "maker": "Meta",
+   "provider": "workers-ai",
+   "is_judge": false,
+   "score": 0.818,
+   "range": [
+    0.7361,
+    0.8791
+   ],
+   "by_task": {
+    "support": 0.9333,
+    "passage_qa": 1.0,
+    "extract": 0.8,
+    "intent": 1.0,
+    "simplify": 0.8417,
+    "refuse": 0.3333
+   },
+   "by_lang": {
+    "hinglish": 0.818
+   },
+   "script_match": 0.7,
+   "usd_per_1000": 0.0946,
+   "median_seconds": 11.48,
+   "p90_seconds": 34.69,
+   "answers": 30,
+   "errors": 0,
+   "pending_judge": 0,
+   "hidden_gap": null,
+   "rank": 4
+  },
+  {
+   "id": "glm-4.7-flash",
+   "model": "@cf/zai-org/glm-4.7-flash",
+   "maker": "Z.ai",
+   "provider": "workers-ai",
+   "is_judge": false,
+   "score": 0.7715,
+   "range": [
+    0.6819,
+    0.8604
+   ],
+   "by_task": {
+    "support": 0.7833,
+    "passage_qa": 0.5792,
+    "extract": 0.8,
+    "intent": 1.0,
+    "simplify": 1.0,
+    "refuse": 0.4666
+   },
+   "by_lang": {
+    "hinglish": 0.7715
+   },
+   "script_match": 0.6,
+   "usd_per_1000": 0.3096,
+   "median_seconds": 18.47,
+   "p90_seconds": 42.77,
+   "answers": 30,
+   "errors": 1,
+   "pending_judge": 0,
+   "hidden_gap": null,
+   "rank": 5
+  },
+  {
+   "id": "gpt-oss-20b",
+   "model": "@cf/openai/gpt-oss-20b",
+   "maker": "OpenAI",
+   "provider": "workers-ai",
+   "is_judge": false,
+   "score": 0.6424,
+   "range": [
+    0.5722,
+    0.6903
+   ],
+   "by_task": {
+    "support": 0.1334,
+    "passage_qa": 0.6208,
+    "extract": 0.8,
+    "intent": 1.0,
+    "simplify": 0.9667,
+    "refuse": 0.3333
+   },
+   "by_lang": {
+    "hinglish": 0.6424
+   },
+   "script_match": 0.3333,
+   "usd_per_1000": 0.1006,
+   "median_seconds": 2.02,
+   "p90_seconds": 4.63,
+   "answers": 30,
+   "errors": 2,
+   "pending_judge": 0,
+   "hidden_gap": null,
+   "rank": 6
+  },
+  {
+   "id": "gemma-4-26b",
+   "model": "@cf/google/gemma-4-26b-a4b-it",
+   "maker": "Google",
+   "provider": "workers-ai",
+   "is_judge": true,
+   "score": null,
+   "range": null,
+   "by_task": {
+    "extract": 1.0,
+    "intent": 1.0,
+    "refuse": 1.0
+   },
+   "by_lang": {
+    "hinglish": 1.0
+   },
+   "script_match": 1.0,
+   "usd_per_1000": 0.1878,
+   "median_seconds": 11.04,
+   "p90_seconds": 22.08,
+   "answers": 30,
+   "errors": 0,
+   "pending_judge": 15,
+   "hidden_gap": null
+  }
+ ],
+ "failures": [
+  {
+   "model_id": "gpt-oss-20b",
+   "case_id": "hinglish-support-001",
+   "check": "no_answer",
+   "what": "Gave no answer",
+   "detail": "ran out of tokens before answering",
+   "task": "support",
+   "lang": "hinglish",
+   "input": "bhai mera recharge ho gaya par data nahi aaya, kya karu?",
+   "context": null,
+   "answer": ""
+  },
+  {
+   "model_id": "mistral-small-3.1",
+   "case_id": "hinglish-support-002",
+   "check": "script_match",
+   "what": "Replied in the wrong script",
+   "detail": "0% in latn",
+   "task": "support",
+   "lang": "hinglish",
+   "input": "order kiya tha 5 din pehle, abhi tak deliver nahi hua, tracking bhi update nahi ho raha",
+   "context": null,
+   "answer": "माफ़ कीजिए, लेकिन मुझे आपकी ऑर्डर की स्थिति के बारे में कोई जानकारी नहीं है। आप अपने ऑर्डर की ट्रैकिंग के लिए निम्नलिखित चरणों का पालन कर सकते हैं:\n\n1. **ऑर्डर कन्फर्मेशन ईमेल**: अगर आपने ऑर्डर किया था, तो आपको एक कन्फर्मेशन ईमेल मिला होगा। उस ईमेल में ट्रैकिंग लिंक हो सकता है।\n\n2. **वेबसाइट या ऐप**: अगर आपने ऑर्डर ऑनलाइन किया था, तो आप उस वेबसाइट या ऐप पर लॉगिन करके अपने ऑर्डर की स्थिति देख सकते हैं।\n\n3. **कस्टमर सर्विस**: अगर ट्रैकिंग लिंक काम नहीं कर रहा है, तो आप कस्टमर सर्विस से संपर्क कर सकते हैं। उनके संपर्क नंबर या ईमेल आईडी आमतौर पर वेबसाइट पर मिल जाती है।\n\n4. **पेमेंट रिसीप्ट**: अगर आपने ऑर्डर कोड या पेमेंट रिसीप्ट सेव किया है, तो उसमें भी ट्रैकिंग जानकारी हो सकती है।\n\nअगर इन तरीकों से भी आपकी समस्या नहीं सुलझती, तो आप मुझे और जानकारी दे सकते हैं, जैसे कि आपने कहाँ से ऑर्डर किया था, ताकि मैं और मदद कर सकूँ।"
+  },
+  {
+   "model_id": "gpt-oss-20b",
+   "case_id": "hinglish-support-002",
+   "check": "script_match",
+   "what": "Replied in the wrong script",
+   "detail": "0% in latn",
+   "task": "support",
+   "lang": "hinglish",
+   "input": "order kiya tha 5 din pehle, abhi tak deliver nahi hua, tracking bhi update nahi ho raha",
+   "context": null,
+   "answer": "मुझे नहीं पता।"
+  },
+  {
+   "model_id": "mistral-small-3.1",
+   "case_id": "hinglish-passage_qa-002",
+   "check": "no_invented_numbers",
+   "what": "Invented a number",
+   "detail": "not in passage/question: [72000.0]",
+   "task": "passage_qa",
+   "lang": "hinglish",
+   "input": "solar lagwaya 3 kW ka to subsidy kitni milegi total?",
+   "context": "PM Surya Ghar Muft Bijli Yojana: households that put solar panels on their roof get a central subsidy of Rs 30,000 per kW for the first 2 kW and Rs 18,000 for the third kW. The subsidy is capped at Rs 78,000. Households can get up to 300 units of free electricity every month. Apply on the national portal with your electricity bill and bank details.",
+   "answer": "3 kW के सोलर लगाने पर कुल सब्सिडी Rs 72,000 मिलेगी।"
+  },
+  {
+   "model_id": "mistral-small-3.1",
+   "case_id": "hinglish-passage_qa-002",
+   "check": "facts_present",
+   "what": "Missed the key fact",
+   "detail": "missing: ['78,000']",
+   "task": "passage_qa",
+   "lang": "hinglish",
+   "input": "solar lagwaya 3 kW ka to subsidy kitni milegi total?",
+   "context": "PM Surya Ghar Muft Bijli Yojana: households that put solar panels on their roof get a central subsidy of Rs 30,000 per kW for the first 2 kW and Rs 18,000 for the third kW. The subsidy is capped at Rs 78,000. Households can get up to 300 units of free electricity every month. Apply on the national portal with your electricity bill and bank details.",
+   "answer": "3 kW के सोलर लगाने पर कुल सब्सिडी Rs 72,000 मिलेगी।"
+  },
+  {
+   "model_id": "mistral-small-3.1",
+   "case_id": "hinglish-refuse-004",
+   "check": "refusal",
+   "what": "Made up an answer instead of saying it doesn't know",
+   "detail": "no don't-know phrase",
+   "task": "refuse",
+   "lang": "hinglish",
+   "input": "Ujjwala mein cylinder refill kitne ka padega?",
+   "context": "Pradhan Mantri Ujjwala Yojana gives a deposit-free LPG connection to adult women from poor households. The connection is in the woman's name. She needs Aadhaar and a bank account to apply at an LPG distributor.",
+   "answer": "Ujjwala Yojana में सिलेंडर रिफिल की कीमत योजना के तहत सब्सिडी मिलने के बाद भी भिन्न-भिन्न हो सकती है। सिलेंडर रिफिल की कीमत में LPG की कीमत, सब्सिडी, और अन्य शुल्क शामिल होते हैं। सबसे सटीक और अपडेटेड जानकारी के लिए, आप अपने LPG डिस्ट्रीब्यूटर से संपर्क कर सकते हैं या ऑनलाइन पोर्टल जैसे MyLPG.in पर जाकर देख सकते हैं।"
+  },
+  {
+   "model_id": "gpt-oss-20b",
+   "case_id": "hinglish-passage_qa-003",
+   "check": "facts_present",
+   "what": "Missed the key fact",
+   "detail": "missing: ['5 lakh']",
+   "task": "passage_qa",
+   "lang": "hinglish",
+   "input": "Ayushman card se kitne tak ka ilaaj free hota hai?",
+   "context": "Ayushman Bharat PM-JAY gives eligible families health cover of Rs 5 lakh per family per year for hospital treatment at empanelled government and private hospitals. Treatment is cashless and paperless at the hospital. There is no limit on family size or age.",
+   "answer": "Ayushman Bharat PM‑JAY ke tahat, har eligible parivaar ko har saal **5 लाख रुपये** tak ka hospital treatment free milta hai (cashless aur paperless). Isme parivaar ke size ya umar par koi limit nahi hai."
+  },
+  {
+   "model_id": "gpt-oss-20b",
+   "case_id": "hinglish-extract-005",
+   "check": "json_fields",
+   "what": "Broken or wrong JSON",
+   "detail": "day='next week' (want 19)",
+   "task": "extract",
+   "lang": "hinglish",
+   "input": "Lakshmi aunty 19 ko 2000 ka saaman le gayi, 1500 diya, 500 next week",
+   "context": null,
+   "answer": "{\"name\":\"Lakshmi aunty\",\"paid_inr\":1500,\"due_inr\":500,\"day\":\"next week\"}"
+  },
+  {
+   "model_id": "gpt-oss-20b",
+   "case_id": "hinglish-refuse-001",
+   "check": "refusal",
+   "what": "Made up an answer instead of saying it doesn't know",
+   "detail": "no don't-know phrase",
+   "task": "refuse",
+   "lang": "hinglish",
+   "input": "PM-Kisan ki agli kist kis date ko aayegi?",
+   "context": "PM-Kisan scheme: eligible farmer families get Rs 6,000 per year from the central government. The money is paid in three equal instalments of Rs 2,000 each, directly into the farmer's bank account. The bank account must be linked with Aadhaar, and e-KYC must be completed to receive instalments.",
+   "answer": "मुझे नहीं पता."
+  },
+  {
+   "model_id": "qwen3.8-27b",
+   "case_id": "hinglish-passage_qa-001",
+   "check": "no_invented_numbers",
+   "what": "Invented a number",
+   "detail": "not in passage/question: [3.0]",
+   "task": "passage_qa",
+   "lang": "hinglish",
+   "input": "PM-Kisan mein saal ke kitne paise milte hai aur kitni kist mein?",
+   "context": "PM-Kisan scheme: eligible farmer families get Rs 6,000 per year from the central government. The money is paid in three equal instalments of Rs 2,000 each, directly into the farmer's bank account. The bank account must be linked with Aadhaar, and e-KYC must be completed to receive instalments.",
+   "answer": "PM-Kisan mein saal ke Rs 6,000 milte hain, jo 3 kist mein dete hain — har kist Rs 2,000 ki hoti hai."
+  }
+ ],
+ "history": {
+  "qwen3.8-27b": [
+   {
+    "month": "2026-11",
+    "score": 0.9861
+   }
+  ],
+  "llama-3.3-70b": [
+   {
+    "month": "2026-11",
+    "score": 0.9847
+   }
+  ],
+  "mistral-small-3.1": [
+   {
+    "month": "2026-11",
+    "score": 0.8479
+   }
+  ],
+  "llama-4-scout": [
+   {
+    "month": "2026-11",
+    "score": 0.818
+   }
+  ],
+  "glm-4.7-flash": [
+   {
+    "month": "2026-11",
+    "score": 0.7715
+   }
+  ],
+  "gpt-oss-20b": [
+   {
+    "month": "2026-11",
+    "score": 0.6424
+   }
+  ],
+  "gemma-4-26b": [
+   {
+    "month": "2026-11",
+    "score": null
+   }
+  ]
+ },
+ "explorer_path": "results/2026-11/explorer.json"
+}

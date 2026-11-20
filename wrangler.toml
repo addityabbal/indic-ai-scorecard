@@ -1,0 +1,12 @@
+# Static leaderboard served from Cloudflare (Workers static assets; Cloudflare has folded Pages into Workers).
+# Deploy: python tools/prepare_site.py && npx wrangler deploy
+name = "indic-ai-scorecard"
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./site"
+not_found_handling = "404-page"
+
+[[routes]]
+pattern = "scorecard.adityabal.com"
+custom_domain = true

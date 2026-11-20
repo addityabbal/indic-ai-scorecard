@@ -1,0 +1,38 @@
+{
+ "runs": [
+  {
+   "at": "2026-11-20T12:49:24+00:00",
+   "models": [
+    "llama-3.3-70b",
+    "llama-4-scout",
+    "mistral-small-3.1",
+    "gpt-oss-20b",
+    "qwen3.8-27b",
+    "glm-4.7-flash",
+    "gemma-4-26b"
+   ],
+   "missing_credentials": [
+    "gemini",
+    "groq",
+    "sarvam"
+   ],
+   "cases": "public",
+   "called": 170,
+   "cached": 33,
+   "neurons": 4506.6,
+   "stopped": "neuron budget 4500 reached"
+  },
+  {
+   "at": "2026-11-20T12:51:52+00:00",
+   "models": [
+    "glm-4.7-flash"
+   ],
+   "missing_credentials": [],
+   "cases": "public",
+   "called": 7,
+   "cached": 23,
+   "neurons": 168.5,
+   "stopped": null
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.wrangler/
+.cloudflare/
+.env
+cases/hidden.jsonl
+key.txt
+*.local.jsonl
+results/run.log
+site/data/
+tools/ai-proxy/.wrangler/
+results/judge.log

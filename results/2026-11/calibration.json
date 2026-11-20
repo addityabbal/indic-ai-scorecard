@@ -1,0 +1,7 @@
+{
+ "status": "not yet calibrated",
+ "threshold": 0.7,
+ "human_scores": 0,
+ "by_lang": {},
+ "note": "Human scores for the judge are not collected yet (target: 60 answers)."
+}

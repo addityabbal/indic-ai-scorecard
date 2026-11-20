@@ -1,0 +1,5 @@
+openai>=1.40
+pyyaml>=6
+sacrebleu>=2.4
+jsonschema>=4.20
+pytest>=8

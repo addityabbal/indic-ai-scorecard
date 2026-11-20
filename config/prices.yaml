@@ -1,0 +1,22 @@
+# List prices, used to show what each model would cost on its paid plan. Free-tier runs cost ₹0.
+# Workers AI bills in neurons: $0.011 per 1,000 neurons (developers.cloudflare.com/workers-ai/platform/pricing,
+# checked 2026-11-20). Every Workers AI call records the neurons it used, so its cost is measured, not estimated.
+# Other providers: USD per million input / output tokens. null = not checked yet (shown as "n/a").
+checked: "2026-11-20"
+usd_inr: null            # set a rate (e.g. from the RBI reference rate) to show rupees as well as dollars
+
+workers_ai:
+  usd_per_1000_neurons: 0.011
+  # Published per-model token prices (same page), for reference:
+  "@cf/meta/llama-3.3-70b-instruct-fp8-fast": { in: 0.293, out: 2.253 }
+  "@cf/google/gemma-4-26b-a4b-it": { in: 0.100, out: 0.300 }
+  "@cf/mistralai/mistral-small-3.1-24b-instruct": { in: 0.351, out: 0.555 }
+  "@cf/openai/gpt-oss-20b": { in: 0.200, out: 0.300 }
+  "@cf/openai/gpt-oss-120b": { in: 0.350, out: 0.750 }
+
+tokens:
+  llama-3.3-70b-versatile: { in: null, out: null }
+  llama-3.1-8b-instant: { in: null, out: null }
+  openai/gpt-oss-20b: { in: null, out: null }
+  gemini-flash-lite-latest: { in: null, out: null }
+  sarvam-m: { in: null, out: null }

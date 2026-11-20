@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Indic AI Scorecard test case",
+  "type": "object",
+  "required": ["id", "lang", "script", "task", "input", "checks", "author"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z]+-[a-z_]+-[0-9]{3}$" },
+    "lang": { "enum": ["hinglish", "hi", "mr", "ta", "bn"] },
+    "script": { "enum": ["latn", "deva", "taml", "beng"] },
+    "task": { "enum": ["support", "passage_qa", "extract", "intent", "simplify", "refuse"] },
+    "input": { "type": "string", "minLength": 3 },
+    "instruction": { "type": ["string", "null"] },
+    "context": { "type": ["string", "null"] },
+    "expected": { "type": ["object", "null"] },
+    "reference": { "type": ["string", "null"] },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["script_match", "json_fields", "label_match", "facts_present", "no_invented_numbers", "refusal", "chrf", "judge"] }
+    },
+    "rubric": { "type": ["string", "null"] },
+    "author": { "type": "string" },
+    "reviewed_by": { "type": ["string", "null"] }
+  }
+}

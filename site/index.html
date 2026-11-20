@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indic AI Scorecard — which model for Indian-language features, at what cost</title>
+  <meta name="description" content="An open, reproducible scorecard of AI models on real-world Indian-language tasks: Hinglish support replies, scheme questions, data extraction. Quality, cost per 1,000 answers and speed side by side." />
+  <meta property="og:title" content="Indic AI Scorecard" />
+  <meta property="og:description" content="Which AI model should you pick for an Indian-language feature, at what cost?" />
+  <meta name="theme-color" content="#111827" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='14' width='5' height='13' rx='1' fill='%23ea580c'/%3E%3Crect x='13' y='8' width='5' height='19' rx='1' fill='%23ea580c'/%3E%3Crect x='21' y='4' width='5' height='23' rx='1' fill='%23ea580c'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap row">
+      <a class="brand" href="/">Indic AI Scorecard</a>
+      <nav class="nav small">
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#failures">Failures</a>
+        <a href="#explorer">Answers</a>
+        <a href="#method">Method</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow">Which model for an Indian-language feature, at what cost?</p>
+      <h1 id="headline">Loading this month's results…</h1>
+      <p class="lead" id="sub"></p>
+      <p class="pilot" id="pilot" hidden></p>
+    </section>
+
+    <section aria-labelledby="chart-h">
+      <h2 id="chart-h">Quality against cost</h2>
+      <p class="muted small">One dot per model. Up is better quality; left is cheaper per 1,000 answers (log scale). Bars are 95% ranges: overlapping bars mean a tie. Models worth using sit top-left.</p>
+      <div class="panel"><svg id="chart" role="img" aria-label="Scatter chart of model quality against cost"></svg></div>
+    </section>
+
+    <section id="leaderboard" aria-labelledby="lb-h">
+      <h2 id="lb-h">Leaderboard</h2>
+      <div class="filters">
+        <label>Language <select id="f-lang"><option value="">All</option></select></label>
+        <label>Task <select id="f-task"><option value="">All</option></select></label>
+      </div>
+      <div class="table-wrap">
+        <table id="table">
+          <thead><tr></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="muted small" id="table-note"></p>
+    </section>
+
+    <section id="failures" aria-labelledby="fail-h">
+      <h2 id="fail-h">Failure gallery</h2>
+      <p class="muted small">Real answers from this run that a code check caught. These are the mistakes that break products.</p>
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <section id="explorer" aria-labelledby="ex-h">
+      <h2 id="ex-h">Answer explorer</h2>
+      <label class="block">Pick a test case <select id="case"></select></label>
+      <div id="case-body" class="panel"></div>
+      <div id="answers" class="answers"></div>
+    </section>
+
+    <section id="method" aria-labelledby="m-h">
+      <h2 id="m-h">Method and limits</h2>
+      <div id="method-body" class="panel"></div>
+    </section>
+  </main>
+
+  <footer class="wrap foot small muted">
+    <p>Open test set (CC BY 4.0) and code: <a href="https://github.com/addityabbal/indic-ai-scorecard">github.com/addityabbal/indic-ai-scorecard</a>. Propose new cases or a new language through a GitHub issue. Built by <a href="https://adityabal.com/projects/indic-ai-scorecard">Aditya H Bal</a>.</p>
+  </footer>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
