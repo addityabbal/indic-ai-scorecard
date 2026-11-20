@@ -17,10 +17,10 @@ async function load() {
   const d = state.data;
   $("#headline").textContent = d.headline;
   const ranked = d.models.filter((m) => !m.is_judge).length;
-  $("#sub").textContent = `${ranked} models, ${d.cases.public} test cases, run ${d.month}. Scores are 0–100; cost is what 1,000 answers would cost on each model's paid plan.`;
-  if (d.cases.reviewed < d.cases.public || d.cases.public < 300) {
+  $("#sub").textContent = `${ranked} models, ${d.cases.answered} test cases, run ${d.month}. Scores are 0–100; cost is what 1,000 answers would cost on each model's paid plan.`;
+  if (d.cases.reviewed < d.cases.answered || d.cases.answered < 300) {
     $("#pilot").hidden = false;
-    $("#pilot").textContent = `Pilot: ${d.cases.public} of the planned 300 cases, ${Object.values(d.languages).join(", ")} only, ${d.cases.reviewed} reviewed by a native speaker so far, and the AI judge is ${d.calibration.status}. With this few cases, read the ranges, not the ranks.`;
+    $("#pilot").textContent = `Pilot: ${d.cases.answered} of the planned 300 cases answered so far (${Object.values(d.languages).join(", ")}), ${d.cases.reviewed} reviewed by a native speaker, and the AI judge is ${d.calibration.status}. The full test set (Hindi, Marathi, Tamil, Bengali and Hinglish, ${d.cases.public} public + 60 hidden) is drafted and runs next. With this few cases, read the ranges, not the ranks.`;
   }
   for (const [k, v] of Object.entries(d.languages)) $("#f-lang").insertAdjacentHTML("beforeend", `<option value="${esc(k)}">${esc(v)}</option>`);
   for (const t of d.cases.tasks) $("#f-task").insertAdjacentHTML("beforeend", `<option value="${esc(t)}">${esc(d.tasks[t] || t)}</option>`);
@@ -173,7 +173,7 @@ function renderMethod() {
   const judge = d.judge ? `${d.judge.id} (${d.judge.model}, ${d.judge.maker}). It grades blind and in random order, at temperature 0, and is never ranked, because AI judges favour their own answers.` : "None";
   const last = d.runs[d.runs.length - 1];
   $("#method-body").innerHTML = `<dl>
-    <dt>Test set</dt><dd>${d.cases.public} public cases (${Object.entries(d.cases.by_lang).map(([l, n]) => `${d.languages[l] || l} ${n}`).join(", ")}), ${d.cases.reviewed} reviewed by a native speaker. Real tasks: support replies, scheme questions from a passage, pulling data from a message, intent, plain-language rewrites, and saying "I don't know".</dd>
+    <dt>Test set</dt><dd>This run: ${d.cases.answered} cases (${Object.entries(d.cases.by_lang).map(([l, n]) => `${d.languages[l] || l} ${n}`).join(", ")}), ${d.cases.reviewed} reviewed by a native speaker. Drafted for the next runs: ${d.cases.public} public cases across ${Object.keys(d.cases.in_set_by_lang).length} language variants plus 60 encrypted hidden cases. Real tasks: support replies, scheme questions from a passage, pulling data from a message, intent, plain-language rewrites, and saying "I don't know".</dd>
     <dt>Scoring</dt><dd>Code checks first (JSON fields, labels, key facts, no invented numbers, a don't-know phrase, same script as the user). An AI judge scores open answers 1–5 on helpful, correct and natural. Each case scores 0–1; each task counts equally; ranges are 95% bootstrap intervals (1,000 resamples).</dd>
     <dt>Judge</dt><dd>${esc(judge)}</dd>
     <dt>Judge vs people</dt><dd>${esc(calText)}</dd>

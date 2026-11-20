@@ -189,7 +189,8 @@ def build(folder) -> dict:
         if len(gallery) == 10:
             break
 
-    langs = sorted({c["lang"] for c in cases.values()})
+    answered_ids = {a["case_id"] for a in answers}
+    langs = sorted({cases[i]["lang"] for i in answered_ids}) or sorted({c["lang"] for c in cases.values()})
     meta_path = folder / "run_meta.json"
     meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {}
     judge = next((m for m in models if m.get("is_judge")), None)
@@ -197,8 +198,11 @@ def build(folder) -> dict:
         "month": folder.name,
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "headline": headline(ranked, langs),
-        "cases": {"public": len(cases), "by_lang": {l: sum(1 for c in cases.values() if c["lang"] == l) for l in langs},
-                  "tasks": sorted({c["task"] for c in cases.values()}), "reviewed": sum(1 for c in cases.values() if c.get("reviewed_by"))},
+        "cases": {"public": len(cases), "answered": len(answered_ids),
+                  "by_lang": {l: sum(1 for i in answered_ids if cases[i]["lang"] == l) for l in langs},
+                  "in_set_by_lang": {l: sum(1 for c in cases.values() if c["lang"] == l) for l in sorted({c["lang"] for c in cases.values()})},
+                  "tasks": sorted({cases[i]["task"] for i in answered_ids}),
+                  "reviewed": sum(1 for i in answered_ids if cases[i].get("reviewed_by"))},
         "languages": {l: LANG_LABELS.get(l, l) for l in langs},
         "tasks": TASK_LABELS,
         "judge": {"id": judge["id"], "model": judge["model"], "maker": judge.get("maker")} if judge else None,

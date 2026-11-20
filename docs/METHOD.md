@@ -4,11 +4,23 @@
 
 ## Test set
 
-Planned: 300 cases = 6 tasks × 5 language variants × 10 cases, written and reviewed by people.
-Current: the **Hinglish pilot**, 30 cases (6 tasks × 5), drafted by Claude and **not yet reviewed** by a
-native speaker (`reviewed_by: null` in `cases/hinglish.jsonl`). Passages are written from scratch from
-public scheme facts (PM-Kisan, PM Surya Ghar, PM-JAY, Sukanya Samriddhi, Ujjwala), never copied from
-other benchmarks. Public cases are licensed CC BY 4.0.
+**300 cases = 6 tasks × 5 language variants × 10 cases**, all drafted (M3):
+
+| Language | Script | Public | Hidden |
+| --- | --- | --- | --- |
+| Hinglish | Roman | 48 | 12 |
+| Hindi | Devanagari | 48 | 12 |
+| Marathi | Devanagari | 48 | 12 |
+| Tamil | Tamil script, 3 of 10 per task romanized | 48 | 12 |
+| Bengali | Bengali | 48 | 12 |
+
+The same 10 real-world scenarios per task run in every language, so languages can be compared.
+Passages are in English, as most official scheme pages are; questions and expected replies are in
+the user's language. Cases were drafted by Claude (`author: draft-claude`) and are **not yet reviewed**
+by native speakers (`reviewed_by: null`); review is the next step. Only the 30-case Hinglish pilot
+(cases 001-005 per task) has been run so far. Passages are written from scratch from public scheme
+facts (PM-Kisan, PM Surya Ghar, PM-JAY, Sukanya Samriddhi, Ujjwala), never copied from other
+benchmarks. Public cases are licensed CC BY 4.0.
 
 | Task | What it copies | Scored by |
 | --- | --- | --- |
@@ -70,9 +82,13 @@ scores are flagged low confidence. *Not done yet.*
 
 ## Contamination
 
-A hidden set (20% of the full 300) will be stored encrypted with `age` and decrypted only inside the
-monthly workflow. Its answers go to a git-ignored file; `tools/validate_cases.py` fails if a hidden case
-id appears in any committed result. The pilot has no hidden set yet.
+Cases 006 and 010 of every task and language (60 cases, 20%) are the hidden set. They live only in
+`cases/hidden.jsonl.age`, encrypted with age to the public key in `config/age-recipient.txt`
+(`tools/hidden_set.py`). The monthly workflow decrypts them with the `AGE_KEY` secret, sends them only to
+providers whose free tier does not train on prompts (`public_cases_only` models skip them), writes their
+answers to a git-ignored file and deletes the plaintext before committing. `tools/validate_cases.py`
+fails if a hidden case id appears in any committed result. The leaderboard flags models that score much
+higher on public cases than hidden ones.
 
 ## Limits
 

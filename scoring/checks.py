@@ -10,7 +10,8 @@ SCRIPTS = {
     "beng": [(0x0980, 0x09FF)],
     "latn": [(0x0041, 0x005A), (0x0061, 0x007A), (0x00C0, 0x024F)],
 }
-DEVANAGARI_DIGITS = str.maketrans("०१२३४५६७८९", "0123456789")
+# Devanagari, Bengali and Tamil digits -> 0-9 (named for history; covers all three).
+DEVANAGARI_DIGITS = str.maketrans("०१२३४५६७८९০১২৩৪৫৬৭৮৯௦௧௨௩௪௫௬௭௮௯", "0123456789" * 3)
 NUMBER = re.compile(r"\d[\d,]*(?:\.\d+)?")
 
 # "I don't know" phrases per language. Lowercased substring match.
@@ -22,9 +23,12 @@ REFUSAL = {
         "doesn't say", "does not say", "no information",
     ],
     "hi": ["पता नहीं", "नहीं पता", "जानकारी नहीं", "नहीं दी", "उल्लेख नहीं", "नहीं बताया", "नहीं लिखा", "उपलब्ध नहीं"],
-    "mr": ["माहित नाही", "माहिती नाही", "उल्लेख नाही", "दिलेली नाही"],
-    "ta": ["தெரியவில்லை", "தகவல் இல்லை", "குறிப்பிடப்படவில்லை"],
-    "bn": ["জানি না", "তথ্য নেই", "উল্লেখ নেই", "বলা নেই"],
+    "mr": ["माहित नाही", "माहिती नाही", "उल्लेख नाही", "दिलेली नाही", "दिलेले नाही", "सांगितलेले नाही",
+           "सांगितले नाही", "नमूद नाही", "नमूद केलेले नाही"],
+    "ta": ["தெரியவில்லை", "தெரியாது", "தகவல் இல்லை", "குறிப்பிடப்படவில்லை", "கூறப்படவில்லை",
+           "theriyala", "theriyadhu", "theriyathu", "theriyavillai", "thagaval illa", "kuripidavillai"],
+    "bn": ["জানি না", "জানা নেই", "তথ্য নেই", "উল্লেখ নেই", "বলা নেই", "দেওয়া নেই", "উল্লেখ করা হয়নি",
+           "বলা হয়নি", "তথ্য দেওয়া হয়নি"],
 }
 
 
@@ -54,7 +58,8 @@ def script_match(text: str, script: str, threshold: float = 0.8) -> tuple[bool, 
 NUMBER_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8,
                 "nine": 9, "ten": 10, "eleven": 11, "twelve": 12, "fifteen": 15, "twenty": 20, "thirty": 30,
                 "hundred": 100}
-UNIT_WORDS = {"लाख": "lakh", "करोड़": "crore", "करोड": "crore", "हज़ार": "hazaar", "हजार": "hazaar"}
+UNIT_WORDS = {"लाख": "lakh", "करोड़": "crore", "करोड": "crore", "हज़ार": "hazaar", "हजार": "hazaar",
+              "லட்சம்": "lakh", "லட்ச": "lakh", "লাখ": "lakh", "লক্ষ": "lakh", "কোটি": "crore", "கோடி": "crore"}
 
 
 def numbers(text: str) -> set[float]:
@@ -113,7 +118,9 @@ def parse_json(text: str):
         return None
 
 
-HONORIFICS = {"bhai", "bhaiya", "bhabhi", "aunty", "auntie", "uncle", "ji", "didi", "sir", "madam", "dada", "anna", "akka"}
+HONORIFICS = {"bhai", "bhaiya", "bhabhi", "aunty", "auntie", "uncle", "ji", "didi", "sir", "madam", "dada", "anna",
+              "akka", "maama", "भाई", "भैया", "भाभी", "आंटी", "जी", "दीदी", "ताई", "भाऊ", "काका", "मावशी",
+              "அக்கா", "அண்ணா", "மாமா", "বৌদি", "দা", "দি", "মাসি", "কাকা"}
 
 
 def same_name(got: str, want: str) -> bool:

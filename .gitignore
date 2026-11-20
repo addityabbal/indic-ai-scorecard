@@ -12,3 +12,4 @@ results/run.log
 site/data/
 tools/ai-proxy/.wrangler/
 results/judge.log
+secrets/

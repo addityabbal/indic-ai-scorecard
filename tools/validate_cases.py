@@ -43,7 +43,8 @@ def main() -> int:
             if case.get("id") in ids:
                 errors.append(f"{where}: duplicate id {case.get('id')}")
             ids.add(case.get("id"))
-            norm = " ".join(str(case.get("input", "")).lower().split())
+            # Same input is fine across languages (the simplify task rewrites one English notice into each).
+            norm = (case.get("lang"), " ".join(str(case.get("input", "")).lower().split()), case.get("instruction"))
             if norm in inputs:
                 errors.append(f"{where}: duplicate input")
             inputs.add(norm)

@@ -9,9 +9,9 @@ free tiers.
 
 **Leaderboard:** https://scorecard.adityabal.com · **Method:** [docs/METHOD.md](docs/METHOD.md)
 
-Status: **Hinglish pilot** — 30 cases (6 tasks × 5), 6 models on Cloudflare Workers AI, drafted cases
-not yet reviewed by a native speaker. Full plan: 300 cases across Hindi, Marathi, Tamil, Bengali and
-Hinglish, 6–8 models from Groq, Google AI Studio, Sarvam, Workers AI and OpenRouter.
+Status: **pilot published, full test set drafted.** The live leaderboard shows the 30-case Hinglish
+pilot on 6 models from Cloudflare Workers AI. All 300 cases (Hindi, Marathi, Tamil, Bengali, Hinglish;
+240 public + 60 encrypted hidden) are drafted and awaiting native-speaker review before the first full run.
 
 ## How it works
 

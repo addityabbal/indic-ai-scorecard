@@ -93,3 +93,16 @@ def test_fact_alternatives():
     facts = ["6,000", ["3", "three", "teen", "तीन"]]
     assert checks.facts_present("साल में 6,000 रुपये, तीन किस्तों में", facts)[0]
     assert not checks.facts_present("साल में 6,000 रुपये मिलते हैं", facts)[0]
+
+
+def test_bengali_and_tamil_digits_and_lakh():
+    assert checks.numbers("৬,০০০ টাকা") == {6000.0}
+    assert checks.facts_present("বছরে ৫ লাখ টাকা পর্যন্ত", ["5 lakh"])[0]
+    assert checks.facts_present("5 லட்சம் வரை", ["5 lakh"])[0]
+
+
+def test_refusals_in_other_languages():
+    assert checks.refusal("या परिच्छेदात याचा उल्लेख नाही.", "mr")[0]
+    assert checks.refusal("இந்தப் பத்தியில் அந்த தகவல் இல்லை.", "ta")[0]
+    assert checks.refusal("Enakku theriyala.", "ta")[0]
+    assert checks.refusal("এই অনুচ্ছেদে তা বলা নেই।", "bn")[0]

@@ -4,6 +4,8 @@ Date, decision, reason. Newest first.
 
 | Date | Decision | Reason |
 | --- | --- | --- |
+| 2026-11-20 | Full set drafted with the same 10 scenarios per task in every language; passages in English. | Cross-language comparison on identical jobs; official scheme pages are mostly English. Native reviewers can localise later. |
+| 2026-11-20 | Hidden set = cases 006 and 010 of every task and language, encrypted with age; key kept outside git. | Plan's 20% held-out set, chosen from cases never sent to any model (pilot used 001-005). |
 | 2026-11-20 | Corrected five checker rules and one test case after reading every flagged answer (details in METHOD.md). | They failed correct replies: one-step arithmetic, number words, "5 लाख", honorifics, refusals in Devanagari. Llama 4 Scout moved from 6th to 3rd once its Devanagari "I don't know" replies counted as refusals. |
 | 2026-11-20 | Start with a 30-case Hinglish pilot on Workers AI models only. | No Groq, Google, Sarvam or OpenRouter keys yet; Workers AI works through the existing Cloudflare login. Plan milestone M1. |
 | 2026-11-20 | Pilot judge = Gemma 4 26B on Workers AI, not ranked. Plan's judge (large open model on Groq) once a key exists. | A judge is needed now; Gemma is cheap in neurons and multilingual. Judges favour their own answers, so it is never ranked. |

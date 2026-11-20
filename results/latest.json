@@ -1,11 +1,19 @@
 {
  "month": "2026-11",
- "generated_at": "2026-11-20T14:33:58+00:00",
+ "generated_at": "2026-11-20T16:14:16+00:00",
  "headline": "Top Hinglish quality: qwen3.8-27b (0.99). Best quality per dollar: llama-3.3-70b, statistically tied with it at $0.22 per 1,000 answers.",
  "cases": {
-  "public": 30,
+  "public": 240,
+  "answered": 30,
   "by_lang": {
    "hinglish": 30
+  },
+  "in_set_by_lang": {
+   "bn": 48,
+   "hi": 48,
+   "hinglish": 48,
+   "mr": 48,
+   "ta": 48
   },
   "tasks": [
    "extract",
