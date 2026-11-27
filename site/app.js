@@ -126,7 +126,11 @@ function renderGallery() {
 function renderExplorerPicker() {
   const ids = Object.keys(state.explorer).sort();
   $("#case").innerHTML = ids.map((id) => `<option value="${esc(id)}">${esc(id)}</option>`).join("");
-  $("#case").addEventListener("change", renderCase);
+  $("#case").addEventListener("change", () => {
+    // Analytics: a visitor picked a test case to compare answers (never sends the case text).
+    window.abTrack?.("demo_query", { target: "scorecard", detail: "chip" });
+    renderCase();
+  });
   renderCase();
 }
 
