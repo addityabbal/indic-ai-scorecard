@@ -18,3 +18,4 @@ Date, decision, reason. Newest first.
 | 2026-11-20 | Ranked pilot models: Llama 3.3 70B, Llama 4 Scout, Mistral Small 3.1, gpt-oss-20b, Qwen 3.8 27B, GLM-4.7 Flash. | Five makers available on Workers AI. Qwen3 30B and Llama 3.1 8B fp8 were deprecated the same day. |
 | 2026-11-20 | Leaderboard served as a Worker with static assets at scorecard.adityabal.com, not Pages. | Wrangler now routes Pages commands into Workers and project creation failed; static assets on Workers are the same free hosting. |
 | 2026-11-20 | Cost shown in US$ until a rupee rate is set in prices.yaml. | No verified exchange rate; better no rupee figure than a wrong one. |
+| 2026-11-27 | Load adityabal.com's first-party tracker (`a.js`) and send `demo_query` when a visitor picks an explorer case. | One cookieless analytics pipeline for the portfolio and its demos; the case picker is the closest thing to asking the demo something. No case text is sent. |
